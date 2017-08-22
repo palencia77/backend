@@ -1,3 +1,25 @@
 # Spring properties
 banner:
   location: classpath:/banner/banner.txt
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/backend-spring # JDBC url of the database.
+    username: postgres # Login user of the database.
+    password: postgres # Login password of the database.
+
+  jpa:
+    show-sql: true # Enable logging of SQL statements.
+    hibernate:
+      ddl-auto: update # DDL mode. This is actually a shortcut for the "hibernate.hbm2ddl.auto" property. Default to "create-drop" when using an embedded database, "none" otherwise.
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy # Hibernate 4 naming strategy fully qualified name. Not supported with Hibernate 5.
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect # Additional native properties to set on the JPA provider.
+        default_schema: springmvc
